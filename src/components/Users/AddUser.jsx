@@ -3,14 +3,13 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import "./AddUser.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [enteredUserName, setEnteredUserName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (e) => {
     e.preventDefault();
     if (enteredUserName.trim().length === 0 || enteredAge.trim().length === 0) {
-      console.log("you wronf");
       return;
     }
 
@@ -19,9 +18,9 @@ const AddUser = () => {
       return;
     }
 
-    console.log(enteredUserName, enteredAge);
-      setEnteredAge("");
-      setEnteredUserName("");
+    props.onAddUser(enteredUserName, enteredAge);
+    setEnteredAge("");
+    setEnteredUserName("");
   };
 
   const usernameChangeHandler = (e) => {

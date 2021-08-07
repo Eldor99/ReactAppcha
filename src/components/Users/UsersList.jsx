@@ -1,15 +1,15 @@
 import Card from "../UI/Card";
 import './UsersList.css';
 
-const UsersList = ({users}) => {
+const UsersList = (props) => {
   return (
     <Card className='users'>
       <ul>
-        {users.map((user) => {
-          <li>
-            {user.name} ({user.age} years old)
-          </li>;
-        })}
+        {props.users.map((user) => 
+          <li key={Math.random()}>
+            {user.name} ({user.age} years old) 
+          </li>
+        )}
       </ul>
     </Card>
   );
